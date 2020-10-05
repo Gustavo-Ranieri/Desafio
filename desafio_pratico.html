@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos de basquete</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+    <style>
+        body {
+            background: rgba(245, 184, 70, 0.966);
+            font: normal 15pt Arial;
+        }
+
+        header{
+            color: white;
+            text-align: center;
+        }
+
+        section{
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px, 5px, 10px, black
+        }
+        select#lista {
+            width:200px
+        }
+        footer{
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Placar</h1>
+    </header>
+    <section>
+        <div>
+            Maria, qual seu placar? <input type="number" name="pontos" id="pontos">
+            <input type="button" value="Adicionar" onclick="adicionar()">
+            <br><br><select name ='lista' id ='lista' size ='6'></select> <br>
+            <input type="button" value="Visualizar" onclick="visualizar()">
+        </div>
+        <div>
+        <div id= 'resultado'>    
+        
+        </div>
+
+    </section>
+    <footer>
+        <p>Jogadora Maria</p>
+    </footer>
+
+    <script>
+        var pontos = document.getElementById('pontos');
+        var lista = document.getElementById('lista');
+        var res = document.getElementById('resultado');
+        var temporada = []
+
+           
+        function adicionar(){
+            temporada.push(Number(pontos.value))
+            var item = document.createElement('Option');
+            var pontuação = 1
+            item.text = pontos.value
+            lista.appendChild(item); 
+            pontos.value = ''
+            pontos.focus();
+            res.innerText = ''
+        }
+
+        function visualizar() {
+            if(temporada.length == 0){
+                alert('Adicione um placar')
+            } else {
+                var menor = temporada[0]
+                var maior = temporada [0]
+                for(var pos in temporada){
+                    if(temporada[pos]>maior)
+                        maior = temporada[pos]
+                    if(temporada[pos]<menor)
+                        menor = temporada[pos]
+                }
+
+            var ultimo = temporada[temporada.length];
+            var pnul = temporada[0]
+            var recordMax = 0
+            var recordMin = 0
+
+            for(pnul; ultimo > pnul; pnul++){
+                recordMax++
+            }
+
+            for(pnul; ultimo < pnul; pnult++){
+                recordMin++
+            }
+
+            
+                            
+                res.innerHTML = ''
+                res.innerHTML += `<p> Mínimo da temporada ${menor} </p>`
+                res.innerHTML += `<p> Máximo da temporada ${maior}</p>`
+                res.innerHTML += `<p> Número de recordes máximos quebrados ${recordMax}</p>`
+                res.innerHTML += `<p> Número de recordes mínimos quebrados ${recordMin}</p>`
+                
+            }
+           
+
+        }
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
