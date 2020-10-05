@@ -4,7 +4,7 @@ Tabela de conteúdos
 =========
 <!--ts-->
 [Sobre] Programa realizado para calcular indices de jogos de basquete.
-[Instalção] Fazer cópia do código abrind-o em editor de texto como <ex VS cd>
+[Instalção] Fazer cópia do código abrind-o em editor de texto como  ex Visual Studio Cod
   [Para rodar] Abrir o arquivo.html salvo no navegador chrome.
                Digitar pontos do jogo e clicar em add
                Após inseir clicar em visualizar
